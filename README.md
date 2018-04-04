@@ -19,5 +19,5 @@ Personal assignment
 6. WC        
   Post对应的字数 (Word count)
 7. Analytic
-  低Analytic表明 写和想 用更叙事的语言。 高Analtic表明 写和想 用更学术 
+  低Analytic表明写和想用更叙事的语言。高Analtic表明写和想用更学术 
 8. Clout    
