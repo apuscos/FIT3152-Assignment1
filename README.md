@@ -20,4 +20,6 @@ Personal assignment
   Post对应的字数 (Word count)
 7. Analytic        
   低Analytic表明写和想用更叙事的语言。高Analtic表明写和想用更学术
-8. Clout
+8. Clout        
+  通过言谈表现出来的社会地位，自信，领导力（权利，力量和影响力）
+9. 
