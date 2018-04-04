@@ -2,5 +2,5 @@
 Personal assignment
 
 Team member
-Gao Wang
-Yulu Chen
+# Gao Wang
+# Yulu Chen
