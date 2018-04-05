@@ -26,11 +26,11 @@ Personal assignment
   可靠性，真实性
 10. Tone  
   值越高，表达的感情(对事物)音色就越正面
-11. ppron 
+11. ppron   
   所有的人称代词
-12. i, we, you, shehe, they 
+12. i, we, you, shehe, they   
   第一人称单数,第一人称复数，第二人称单数和复数，第三人称单数，第三人称复数。这些数值加起来等于ppron或约等于（近似误差）
-13. numbers 
+13. numbers   
   Post中数字文字的数量
 14. affect  
   情绪用词的占比
