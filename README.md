@@ -22,4 +22,21 @@ Personal assignment
   低Analytic表明写和想用更叙事的语言。高Analtic表明写和想用更学术
 8. Clout        
   通过言谈表现出来的社会地位，自信，领导力（权利，力量和影响力）
-9. 
+9. Authentic    
+  可靠性，真实性
+10. Tone  
+  值越高，表达的感情(对事物)音色就越正面
+11. ppron 
+  所有的人称代词
+12. i, we, you, shehe, they 
+  第一人称单数,第一人称复数，第二人称单数和复数，第三人称单数，第三人称复数。这些数值加起来等于ppron或约等于（近似误差）
+13. numbers 
+  Post中数字文字的数量
+14. affect  
+  情绪用词的占比
+15. posemo, negemo  
+  正面情绪的占比和负面情绪的占比 affect约等于posemo + negemo
+
+
+
+
