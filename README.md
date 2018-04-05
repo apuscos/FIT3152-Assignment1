@@ -34,7 +34,7 @@ Personal assignment
   Post中数字文字的数量
 14. affect  
   情绪用词的占比
-15. posemo, negemo  
+15. posemo, negemo    
   正面情绪的占比和负面情绪的占比 affect约等于posemo + negemo
 
 
