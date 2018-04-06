@@ -40,8 +40,20 @@ Personal assignment
   表达焦虑，生气，社会性，家人，朋友，工作，空闲，家，金钱，宗教，宣誓的词汇占比，其中部分可归类为posemo和negemo
 17. QMark   
   问号的数量
+  
+## Target
+  验证相互交流时人们采用相似模式的语言在在线论坛
   
- 
+## Questions
+* 在同一个thread人们是不是用相似的语言交流
+* 在一个thread用一种模式交流，在另一个thread是否同样用相似的模式
+* 使用的语言（各个方面）是否随时间改变
+  
+## The process of data analysis
+  1. Data requirments. See above
+  2. Data collection. Download from moodle
+  3. Data processing  using "read.csv" to import data
+  4. Data cleaning
 
 
 
