@@ -52,8 +52,9 @@ Personal assignment
 ## The process of data analysis
   1. Data requirments. See above
   2. Data collection. Download from moodle
-  3. Data processing  using "read.csv" to import data
-  4. Data cleaning
+  3. Data processing.  using "read.csv" to import data
+  4. Data cleaning. Data is cleaning
+  5. Exploratory data analysis
 
 
 
