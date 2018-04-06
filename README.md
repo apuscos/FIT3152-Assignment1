@@ -27,15 +27,21 @@ Personal assignment
 10. Tone  
   值越高，表达的感情(对事物)音色就越正面
 11. ppron   
-  所有的人称代词
-12. i, we, you, shehe, they   
-  第一人称单数,第一人称复数，第二人称单数和复数，第三人称单数，第三人称复数。这些数值加起来等于ppron或约等于（近似误差）
+  所有的人称代词占比
+12. i, we, you, shehe, they   
+  第一人称单数,第一人称复数，第二人称单数和复数，第三人称单数，第三人称复数的占比。这些数值加起来等于ppron或约等于（近似误差）
 13. numbers   
   Post中数字文字的数量
 14. affect  
   情绪用词的占比
 15. posemo, negemo    
   正面情绪的占比和负面情绪的占比 affect约等于posemo + negemo
+16. anx, anger, social, family, friend, work, leisure, home, money, relig, swear   
+  表达焦虑，生气，社会性，家人，朋友，工作，空闲，家，金钱，宗教，宣誓的词汇占比，其中部分可归类为posemo和negemo
+17. QMark   
+  问号的数量
+  
+ 
 
 
 
