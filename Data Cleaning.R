@@ -1,0 +1,1 @@
+clean.webforum = webforum[!(webforum$WC == 0),]
