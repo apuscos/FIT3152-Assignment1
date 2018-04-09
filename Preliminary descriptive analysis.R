@@ -3,7 +3,7 @@ univariable.analysis = function(variable){
   attach(clean.webforum)
   jpeg(filename = paste(string, " Histogram.jpeg", sep = ""))
   file.remove(paste(string, " univariable.txt", sep = ""))
-  output = capture.output(summary(variable))
+  output = capture.output(summary(variable), sd(variable))    # Make the output to table
   cat(output, file=paste(string, " univariable.txt", sep = ""), sep="n")
   #value = log(variable)
   #hist(value, prob = TRUE, xlim = c(0, 6), main = "", xlab = paste("Log ", string, sep = ""))
@@ -17,3 +17,16 @@ univariable.analysis(Analytic)
 univariable.analysis(Clout)
 univariable.analysis(Authentic)
 univariable.analysis(Tone)
+
+attach(clean.webforum)
+thread.id = unique(ThreadID)
+length(t.id)
+
+author.id = unique(AuthorID)
+length(a.id)
+
+date = unique(Date)
+length(date)
+
+detach(clean.webforum)
+
