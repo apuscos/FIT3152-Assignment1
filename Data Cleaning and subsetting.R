@@ -1,6 +1,7 @@
-#install.packages("ggplot2", "zoo")
+#install.packages("ggplot2", "zoo", "gridExtra")
 library(zoo)
 library(ggplot2)
+library(gridExtra)
 webforum = read.csv("webforum.csv")
 clean.webforum = webforum[!(webforum$WC <= 10),] #If the word count of a post is less or equal to 10, ommit it
 
