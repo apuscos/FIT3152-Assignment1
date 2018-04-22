@@ -1,4 +1,6 @@
-#install.packages("ggplot2", "zoo", "gridExtra")
+install.packages("ggplot2")
+install.packages("zoo")
+install.packages("gridExtra")
 library(zoo)
 library(ggplot2)
 library(gridExtra)
