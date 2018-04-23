@@ -26,69 +26,84 @@ extract.webforum = extract.webforum[extract.webforum$TF == TRUE,]
 remove(row)
 remove(value.thread)
 
-# Do the t-test for analytic
-analytic.webforum = extract.webforum[, c(1,2,3,7)]
+# Do the t-test for social
+social.webforum = extract.webforum[, c(1,2,3,23)]
 # Between top 5 authors of top 10 and bottom 5 authors of top 10
-analytic.thread.ttest = as.data.frame(as.table(by(analytic.webforum, analytic.webforum$ThreadID, function(df) 
-  t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$Analytic, 
-         df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$Analytic)$p.value)))
-colnames(analytic.thread.ttest) = c("ThreadID", "PV")
-analytic.similar = nrow(analytic.thread.ttest[analytic.thread.ttest$PV>=0.05,])
-analytic.notsimilar = nrow(analytic.thread.ttest[analytic.thread.ttest$PV<0.05,])
-remove(analytic.webforum)
-remove(analytic.thread.ttest)
+social.thread.ttest = as.data.frame(as.table(by(social.webforum, social.webforum$ThreadID, function(df) 
+  t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$social, 
+         df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$social)$p.value)))
+colnames(social.thread.ttest) = c("ThreadID", "PV")
+g1 = ggplot(social.thread.ttest, aes(x = ThreadID, y = PV, group = 1)) + geom_point() + 
+  theme(axis.text.x=element_blank()) + geom_hline(yintercept = 0.05) + 
+  scale_y_continuous(breaks = c(0.00, 0.05, 0.25, 0.50, 0.75, 1.00)) + labs(x = "social")
+social.similar = nrow(social.thread.ttest[social.thread.ttest$PV>=0.05,])
+social.notsimilar = nrow(social.thread.ttest[social.thread.ttest$PV<0.05,])
+remove(social.webforum)
+remove(social.thread.ttest)
 
 #Do the t test for clout
 clout.webforum = extract.webforum[, c(1,2,3,8)]
-clout.thread.ttest = as.data.frame(as.table(by(clout.webforum, clout.webforum$ThreadID, function(df) t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$Clout, df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$Clout)$p.value)))
+clout.thread.ttest = as.data.frame(as.table(by(clout.webforum, clout.webforum$ThreadID, function(df) 
+  t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$Clout, 
+         df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$Clout)$p.value)))
 colnames(clout.thread.ttest) = c("ThreadID", "PV")
+g2 = ggplot(clout.thread.ttest, aes(x = ThreadID, y = PV, group = 1)) + geom_point() + 
+  theme(axis.text.x=element_blank()) + geom_hline(yintercept = 0.05) + 
+  scale_y_continuous(breaks = c(0.00, 0.05, 0.25, 0.50, 0.75, 1.00)) + labs(x = "clout")
 clout.similar = nrow(clout.thread.ttest[clout.thread.ttest$PV>=0.05,])
 clout.notsimilar = nrow(clout.thread.ttest[clout.thread.ttest$PV<0.05,])
 remove(clout.webforum)
 remove(clout.thread.ttest)
 
-# Do the t test for authentic
-authentic.webforum = extract.webforum[, c(1,2,3,9)]
-authentic.thread.ttest = as.data.frame(as.table(by(authentic.webforum, authentic.webforum$ThreadID, function(df) t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$Authentic, df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$Authentic)$p.value)))
-colnames(authentic.thread.ttest) = c("ThreadID", "PV")
-
-pdf("AuthenticPV.pdf")
-ggplot(authentic.thread.ttest, aes(x = ThreadID, y = PV, group = 1)) + geom_point() + 
+# Do the t test for ppron
+ppron.webforum = extract.webforum[, c(1,2,3,11)]
+ppron.thread.ttest = as.data.frame(as.table(by(ppron.webforum, ppron.webforum$ThreadID, function(df) 
+  t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$ppron, 
+         df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$ppron)$p.value)))
+colnames(ppron.thread.ttest) = c("ThreadID", "PV")
+g3 = ggplot(ppron.thread.ttest, aes(x = ThreadID, y = PV, group = 1)) + geom_point() + 
   theme(axis.text.x=element_blank()) + geom_hline(yintercept = 0.05) + 
-  scale_y_continuous(breaks = c(0.00, 0.05, 0.25, 0.50, 0.75, 1.00)) 
-dev.off()
-authentic.similar = nrow(authentic.thread.ttest[authentic.thread.ttest$PV>=0.05,])
-authentic.notsimilar = nrow(authentic.thread.ttest[authentic.thread.ttest$PV<0.05,])
-remove(authentic.webforum)
-remove(authentic.thread.ttest)
+  scale_y_continuous(breaks = c(0.00, 0.05, 0.25, 0.50, 0.75, 1.00)) + labs(x = "ppron")
+ppron.similar = nrow(ppron.thread.ttest[ppron.thread.ttest$PV>=0.05,])
+ppron.notsimilar = nrow(ppron.thread.ttest[ppron.thread.ttest$PV<0.05,])
+remove(ppron.webforum)
+remove(ppron.thread.ttest)
 
-# Do the t test for tone
-tone.webforum = extract.webforum[, c(1,2,3,10)]
-tone.thread.ttest = as.data.frame(as.table(by(tone.webforum, tone.webforum$ThreadID, function(df) t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$Tone, df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$Tone)$p.value)))
-colnames(tone.thread.ttest) = c("ThreadID", "PV")
-pdf("TonePV.pdf")
-ggplot(tone.thread.ttest, aes(x = ThreadID, y = PV, group = 1)) + geom_point() + 
+# Do the t test for negemo
+negemo.webforum = extract.webforum[, c(1,2,3,20)]
+negemo.thread.ttest = as.data.frame(as.table(by(negemo.webforum, negemo.webforum$ThreadID, function(df) 
+  t.test(df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[1:5],]$negemo, 
+         df[df$AuthorID %in% maxPost.authorID.thread[maxPost.authorID.thread$ThreadID %in% df$ThreadID[1],]$AuthorID[6:10],]$negemo)$p.value)))
+colnames(negemo.thread.ttest) = c("ThreadID", "PV")
+g4 = ggplot(negemo.thread.ttest, aes(x = ThreadID, y = PV, group = 1)) + geom_point() + 
   theme(axis.text.x=element_blank()) + geom_hline(yintercept = 0.05) + 
-  scale_y_continuous(breaks = c(0.00, 0.05, 0.25, 0.50, 0.75, 1.00)) 
-dev.off()
+  scale_y_continuous(breaks = c(0.00, 0.05, 0.25, 0.50, 0.75, 1.00)) + labs(x = "negemo")
   
-tone.similar = nrow(tone.thread.ttest[tone.thread.ttest$PV>=0.05,])
-tone.notsimilar = nrow(tone.thread.ttest[tone.thread.ttest$PV<0.05,])
-remove(tone.webforum)
-remove(tone.thread.ttest)
+negemo.similar = nrow(negemo.thread.ttest[negemo.thread.ttest$PV>=0.05,])
+negemo.notsimilar = nrow(negemo.thread.ttest[negemo.thread.ttest$PV<0.05,])
+remove(negemo.webforum)
+remove(negemo.thread.ttest)
 
 remove(maxPost.authorID.thread)
 
 #Print out the result
-print(paste("The number of threads that have similar analytic: ", as.character(analytic.similar)))
-print(paste("The number of threads that have different analytic: ", as.character(analytic.notsimilar)))
+print(paste("The number of threads that have similar social: ", as.character(social.similar)))
+print(paste("The number of threads that have different social: ", as.character(social.notsimilar)))
 print(paste("The number of threads that have similar clout: ", as.character(clout.similar)))
 print(paste("The number of threads that have different clout: ", as.character(clout.notsimilar)))
-print(paste("The number of threads that have similar authentic: ", as.character(authentic.similar)))
-print(paste("The number of threads that have different authentic: ", as.character(authentic.notsimilar)))
-print(paste("The number of threads that have similar tone: ", as.character(tone.similar)))
-print(paste("The number of threads that have different tone: ", as.character(tone.notsimilar)))
-remove(analytic.similar, analytic.notsimilar, clout.similar, clout.notsimilar, authentic.similar, authentic.notsimilar, tone.similar, tone.notsimilar)
+print(paste("The number of threads that have similar ppron: ", as.character(ppron.similar)))
+print(paste("The number of threads that have different ppron: ", as.character(ppron.notsimilar)))
+print(paste("The number of threads that have similar negemo: ", as.character(negemo.similar)))
+print(paste("The number of threads that have different negemo: ", as.character(negemo.notsimilar)))
+
+
+pdf("PV.pdf")
+grid.arrange(g1, g2, g3, g4)
+dev.off()
+
+
+
+remove(social.similar, social.notsimilar, clout.similar, clout.notsimilar, ppron.similar, ppron.notsimilar, negemo.similar, negemo.notsimilar)
 remove(extract.webforum)
 
 
