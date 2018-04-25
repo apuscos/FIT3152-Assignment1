@@ -52,20 +52,9 @@ social.group2 = time.webforum[as.yearmon(time.webforum$Date) >= as.yearmon("2007
 ttest.social = t.test(social.group1$social, social.group2$social)
 remove(social.group1, social.group2)
 
-pdf("timeClout.pdf")
-grid.arrange(timeplot.clout)
-dev.off()
 
-pdf("timePpron.pdf")
-grid.arrange(timeplot.ppron)
-dev.off()
-
-pdf("timeSocial.pdf")
-grid.arrange(timeplot.social)
-dev.off()
-
-pdf("timeNegemo.pdf")
-grid.arrange(timeplot.negemo)
+pdf("timeTotal.pdf")
+grid.arrange(timeplot.clout, timeplot.ppron, timeplot.social, timeplot.negemo)
 dev.off()
 
 remove(timeplot.negemo, timeplot.clout, timeplot.ppron, timeplot.social)

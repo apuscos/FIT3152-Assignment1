@@ -105,5 +105,5 @@ dev.off()
 
 remove(social.similar, social.notsimilar, clout.similar, clout.notsimilar, ppron.similar, ppron.notsimilar, negemo.similar, negemo.notsimilar)
 remove(extract.webforum)
-
+remove(g1,g2,g3,g4)
 

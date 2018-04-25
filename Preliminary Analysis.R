@@ -1,4 +1,17 @@
 correlation.webforum = clean.webforum[, 7:32]
+corr =cor(correlation.webforum)
+p.mat = cor_pmat(correlation.webforum)
+
+corplot = ggcorrplot(corr, p.mat = p.mat, insig = "blank")
+
+remove(corr, p.mat)
+
+pdf("corplot.pdf")
+grid.arrange(corplot)
+dev.off()
+
+remove(corplot)
+
 correlation = as.data.frame(as.table(cor(correlation.webforum)))
 correlation = correlation[!(correlation$Var1 == correlation$Var2),]
 
